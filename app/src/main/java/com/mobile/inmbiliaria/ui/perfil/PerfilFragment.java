@@ -21,7 +21,7 @@ public class PerfilFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         perfilViewModel =
                 ViewModelProviders.of(this).get(PerfilViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_propiedades, container, false);
+        View root = inflater.inflate(R.layout.fragment_perfil, container, false);
         //final TextView textView = root.findViewById(R.id.text_gallery);
         perfilViewModel.getText().observe(this, new Observer<String>() {
             @Override

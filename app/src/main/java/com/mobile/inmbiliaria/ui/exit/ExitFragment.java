@@ -23,11 +23,14 @@ public class ExitFragment extends Fragment {
         exitViewModel =
                 ViewModelProviders.of(this).get(ExitViewModel.class);
         View root = inflater.inflate(R.layout.fragment_exit, container, false);
-        final TextView textView = root.findViewById(R.id.text_send);
+
+        getActivity().moveTaskToBack(true);
+        getActivity().finish();
+
         exitViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                textView.setText(s);
+
             }
         });
         return root;

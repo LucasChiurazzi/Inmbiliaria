@@ -55,12 +55,13 @@ public class ListaPropiedadesFragment extends Fragment {
                             .replace(vg.getId(), contratoFragment, "findThisFragment")
                             .addToBackStack(null)
                             .commit();
+                    DrawerLayout drawer=(DrawerLayout) getActivity().findViewById(R.id.drawer_layout);
+                    drawer.closeDrawer(GravityCompat.START);
                 }
             }
 
         });
-        DrawerLayout drawer=(DrawerLayout) getActivity().findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+
         return view;
     }
 
