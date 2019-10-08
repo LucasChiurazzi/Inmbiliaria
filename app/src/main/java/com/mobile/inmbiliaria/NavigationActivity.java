@@ -46,7 +46,7 @@ public class NavigationActivity extends AppCompatActivity implements PropiedadFr
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_propiedades, R.id.nav_inquilinos,
-                R.id.nav_pagos, R.id.nav_contratos, R.id.nav_exit, R.id.nav_lista_propiedades)
+                R.id.nav_pagos, R.id.nav_exit, R.id.nav_lista_propiedades)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

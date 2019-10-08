@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
                 if(StringUtils.isNoneEmpty(user.getText().toString())&&StringUtils.isNoneEmpty(pass.getText().toString())){
                     if(user.getText().toString().equals("Lucas")&&pass.getText().toString().equals("contraseña")) {
 

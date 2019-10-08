@@ -2,12 +2,6 @@ package com.mobile.inmbiliaria.ui.listaPropiedades.propiedades;
 
 
 import android.os.Bundle;
-
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +9,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+
 import com.mobile.inmbiliaria.ListaAdapter;
-import com.mobile.inmbiliaria.PropiedadFragment;
 import com.mobile.inmbiliaria.R;
 import com.mobile.inmbiliaria.ui.contratos.ContratoFragment;
 import com.mobile.inmbiliaria.ui.model.Propiedad;
-import com.mobile.inmbiliaria.ui.propiedades.PropiedadesFragment;
 
 import java.util.ArrayList;
 
@@ -46,17 +39,17 @@ public class ListaPropiedadesFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Propiedad propiedad= (Propiedad)adapterView.getItemAtPosition(i);
                 if(propiedad!=null) {
+
                     ContratoFragment contratoFragment = new ContratoFragment();
                     Bundle bundle = new Bundle();
                     bundle.putString("NombrePropiedad", propiedad.getDireccion());
                     contratoFragment.setArguments(bundle);
-                    ViewGroup vg= (ViewGroup)getView().getParent();
+
+
                     getActivity().getSupportFragmentManager().beginTransaction()
-                            .replace(vg.getId(), contratoFragment, "findThisFragment")
+                            .replace(R.id.rempla, contratoFragment)
                             .addToBackStack(null)
                             .commit();
-                    DrawerLayout drawer=(DrawerLayout) getActivity().findViewById(R.id.drawer_layout);
-                    drawer.closeDrawer(GravityCompat.START);
                 }
             }
 
