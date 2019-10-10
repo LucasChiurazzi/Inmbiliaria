@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 if(StringUtils.isNoneEmpty(user.getText().toString())&&StringUtils.isNoneEmpty(pass.getText().toString())){
-                    if(user.getText().toString().equals("Lucas")&&pass.getText().toString().equals("contraseña")) {
+                    if(user.getText().toString().equals("Lucas")&&pass.getText().toString().equals("123")) {
 
                         Intent i = new Intent(getApplicationContext(), NavigationActivity.class);
                         i.putExtra("usuario",user.getText());
