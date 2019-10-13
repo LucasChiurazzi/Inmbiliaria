@@ -85,22 +85,33 @@ public class PropiedadFragment extends Fragment  {
         EditText editTextDomiclio= root.findViewById(R.id.editTextDomicilio);
         editTextDomiclio.setText(getArguments().getString("domicilio"));
         editTextDomiclio.setInputType(InputType.TYPE_NULL);
+        editTextDomiclio.setFocusable(false);
+        editTextDomiclio.setCursorVisible(false);
+
 
         EditText editTextAmbientes= root.findViewById(R.id.editTextAmbientes);
         editTextAmbientes.setText(getArguments().getString("ambientes"));
         editTextAmbientes.setInputType(InputType.TYPE_NULL);
+        editTextAmbientes.setFocusable(false);
+        editTextAmbientes.setCursorVisible(false);
 
         EditText editTextTipo= root.findViewById(R.id.editTextTipo);
         editTextTipo.setText(getArguments().getString("tipo"));
         editTextTipo.setInputType(InputType.TYPE_NULL);
+        editTextTipo.setFocusable(false);
+        editTextTipo.setCursorVisible(false);
 
         EditText editTextUso= root.findViewById(R.id.editTextUso);
         editTextUso.setText(getArguments().getString("uso"));
         editTextUso.setInputType(InputType.TYPE_NULL);
+        editTextUso.setFocusable(false);
+        editTextUso.setCursorVisible(false);
 
         EditText editTextPrecio= root.findViewById(R.id.editTextPrecio);
         editTextPrecio.setText(getArguments().getString("precio"));
         editTextPrecio.setInputType(InputType.TYPE_NULL);
+        editTextPrecio.setFocusable(false);
+        editTextPrecio.setCursorVisible(false);
 
         CheckBox checkBox=root.findViewById(R.id.checkBoxDisponible);
         checkBox.setChecked(getArguments().getBoolean("disponible"));
