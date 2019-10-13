@@ -1,13 +1,19 @@
 package com.mobile.inmbiliaria;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
+
+import com.mobile.inmbiliaria.ui.model.Propiedad;
 
 
 /**
@@ -21,7 +27,7 @@ import androidx.fragment.app.Fragment;
 public class PropiedadFragment extends Fragment  {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM1 = "aaaaa";
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
@@ -38,17 +44,22 @@ public class PropiedadFragment extends Fragment  {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     *
      * @return A new instance of fragment PropiedadFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PropiedadFragment newInstance(String param1, String param2) {
+    public static PropiedadFragment newInstance(Propiedad propiedad) {
         PropiedadFragment fragment = new PropiedadFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString("domicilio", propiedad.getDomicilio());
+        args.putString("ambientes", propiedad.getAmbientes()+"");
+        args.putString("tipo", propiedad.getTipo());
+        args.putString("uso", propiedad.getUso());
+        args.putString("precio", propiedad.getPrecio()+"");
+        args.putBoolean("disponible", propiedad.isDisponible());
+
         fragment.setArguments(args);
+
         return fragment;
     }
 
@@ -59,13 +70,45 @@ public class PropiedadFragment extends Fragment  {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_propiedad, container, false);
+
+
+        View root= inflater.inflate(R.layout.fragment_propiedad, container, false);
+        EditText editTextDomiclio= root.findViewById(R.id.editTextDomicilio);
+        editTextDomiclio.setText(getArguments().getString("domicilio"));
+        editTextDomiclio.setInputType(InputType.TYPE_NULL);
+
+        EditText editTextAmbientes= root.findViewById(R.id.editTextAmbientes);
+        editTextAmbientes.setText(getArguments().getString("ambientes"));
+        editTextAmbientes.setInputType(InputType.TYPE_NULL);
+
+        EditText editTextTipo= root.findViewById(R.id.editTextTipo);
+        editTextTipo.setText(getArguments().getString("tipo"));
+        editTextTipo.setInputType(InputType.TYPE_NULL);
+
+        EditText editTextUso= root.findViewById(R.id.editTextUso);
+        editTextUso.setText(getArguments().getString("uso"));
+        editTextUso.setInputType(InputType.TYPE_NULL);
+
+        EditText editTextPrecio= root.findViewById(R.id.editTextPrecio);
+        editTextPrecio.setText(getArguments().getString("precio"));
+        editTextPrecio.setInputType(InputType.TYPE_NULL);
+
+        CheckBox checkBox=root.findViewById(R.id.checkBoxDisponible);
+        checkBox.setChecked(getArguments().getBoolean("disponible"));
+
+
+
+        return root;
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -106,4 +149,7 @@ public class PropiedadFragment extends Fragment  {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
+
 }

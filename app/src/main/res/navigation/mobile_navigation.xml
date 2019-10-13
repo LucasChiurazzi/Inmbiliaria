@@ -25,28 +25,34 @@
 
     <fragment
         android:id="@+id/nav_pagos"
+        android:name="com.mobile.inmbiliaria.ui.listaPropiedades.propiedades.ListaPropiedadesFragment"
+        android:label="@string/menu_pagos"
+        tools:layout="@layout/fragment_lista_propiedades" >
+        <action
+            android:id="@+id/action_nav_pagos_to_nav_pagos_propiedad"
+            app:destination="@id/nav_pagos_propiedad" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_contratos"
+        android:name="com.mobile.inmbiliaria.ui.listaPropiedades.propiedades.ListaPropiedadesFragment"
+        android:label="Contratos"
+        tools:layout="@layout/fragment_lista_propiedades" >
+        <action
+            android:id="@+id/action_nav_contratos_to_nav_contratos_propiedad"
+            app:destination="@id/nav_contratos_propiedad" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_pagos_propiedad"
         android:name="com.mobile.inmbiliaria.ui.pagos.PagosFragment"
         android:label="@string/menu_pagos"
         tools:layout="@layout/fragment_pagos" />
 
     <fragment
-        android:id="@+id/nav_contratos"
+        android:id="@+id/nav_contratos_propiedad"
         android:name="com.mobile.inmbiliaria.ui.contratos.ContratoFragment"
         android:label="Contratos"
         tools:layout="@layout/fragment_contratos" />
-
-    <fragment
-        android:id="@+id/nav_lista_propiedades"
-        android:name="com.mobile.inmbiliaria.ui.listaPropiedades.propiedades.ListaPropiedadesFragment"
-        android:label="Lista Propiedades"
-        tools:layout="@layout/fragment_lista_propiedades" >
-        <action
-            android:id="@+id/action_nav_lista_propiedades_to_nav_pagos"
-            app:destination="@id/nav_pagos" />
-        <action
-            android:id="@+id/action_nav_lista_propiedades_to_nav_contratos"
-            app:destination="@id/nav_contratos" />
-    </fragment>
 
 
     <fragment

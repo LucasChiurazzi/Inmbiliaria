@@ -43,7 +43,7 @@ private  LayoutInflater li;
        foto.setImageResource(inmueble.getFoto());
 
        TextView direccion= itemView.findViewById(R.id.direccion);
-       direccion.setText(inmueble.getDireccion());
+       direccion.setText(inmueble.getDomicilio());
 
        TextView precio= itemView.findViewById(R.id.precio);
        precio.setText("$ "+inmueble.getPrecio()+"");

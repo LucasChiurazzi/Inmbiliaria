@@ -9,13 +9,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.mobile.inmbiliaria.ListaAdapter;
 import com.mobile.inmbiliaria.R;
-import com.mobile.inmbiliaria.ui.contratos.ContratoFragment;
 import com.mobile.inmbiliaria.ui.model.Propiedad;
 
 import java.util.ArrayList;
@@ -44,15 +44,21 @@ public class ListaPropiedadesFragment extends Fragment {
 
 
                     Bundle bundle = new Bundle();
-                    bundle.putString("NombrePropiedad", propiedad.getDireccion());
-                    CharSequence destino=Navigation.findNavController(view).getCurrentDestination().getLabel();
-                    Log.d("destino", "onItemClick: "+destino);
+                    bundle.putString("NombrePropiedad", propiedad.getDomicilio());
+                    CharSequence destino=Navigation.findNavController((View)view.getParent()).getCurrentDestination().getLabel();
 
-                    if("Contratos".equals(destino)){
-                        Navigation.findNavController(view).navigate(R.id.nav_contratos, bundle);
+                    Log.d("destino", "onItemClick: "+destino);
+                    if( propiedad.isDisponible()){
+                        Toast.makeText(getContext(), "La Propiedad esta disponible, no posee datos de contrato o de pagos.", Toast.LENGTH_SHORT).show();
                     }else {
-                        Navigation.findNavController(view).navigate(R.id.nav_pagos, bundle);
+                        if ("Contratos".equalsIgnoreCase(destino.toString())) {
+                            Navigation.findNavController(view).navigate(R.id.action_nav_contratos_to_nav_contratos_propiedad, bundle);
+                        } else {
+                            Navigation.findNavController(view).navigate(R.id.nav_pagos_propiedad, bundle);
+                        }
                     }
+
+
 
                 }
             }
@@ -64,9 +70,9 @@ public class ListaPropiedadesFragment extends Fragment {
 
     public  void  cargarDatos(){
         lista.clear();
-        lista.add(new Propiedad(1,R.drawable.casa1, "Juana Koslay", 900000));
-        lista.add(new Propiedad(2,R.drawable.casa2, "La Punta", 2000000));
-        lista.add(new Propiedad(3, R.drawable.casa3, "San Luis", 800000));
+        lista.add(new Propiedad(1,R.drawable.casa1, "Justo Daract 300", 2, "casa", "residencial", 6500, true));
+        lista.add(new Propiedad(2,R.drawable.casa2, "Serranias Puntanas 4010", 3, "casa","residencial", 3000, false));
+        lista.add(new Propiedad(3, R.drawable.casa3, "Bolivar 930", 1, "casa", "comercial",4000, false));
 
     }
 

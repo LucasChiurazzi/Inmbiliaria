@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.mobile.inmbiliaria.R;
 
 public class PagosFragment extends Fragment {
+    private TextView nombrePropiedad;
 
     private PagosViewModel pagosViewModel;
 
@@ -23,7 +24,13 @@ public class PagosFragment extends Fragment {
         pagosViewModel =
                 ViewModelProviders.of(this).get(PagosViewModel.class);
         View root = inflater.inflate(R.layout.fragment_pagos, container, false);
-        //final TextView textView = root.findViewById(R.id.text_tools);
+        nombrePropiedad= root.findViewById(R.id.textViewPropiedadNombre);
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            String propiedadDireccion = bundle.getString("NombrePropiedad");
+            nombrePropiedad.setText(propiedadDireccion);
+
+        }
         pagosViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {

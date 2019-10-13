@@ -1,15 +1,15 @@
 package com.mobile.inmbiliaria;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.mobile.inmbiliaria.ui.model.Propiedad;
 
@@ -55,6 +55,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Cerrando Inmbiliaria")
+                .setMessage("¿Desea salir de la aplicación?")
+                .setPositiveButton("si", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                     finish();
+                    }
+
+                })
+                .setNegativeButton("no", null)
+                .show();
+
+    }
+
+
 
 
 
